@@ -4,7 +4,7 @@ import numpy as np
 from PIL import Image
 
 # Load pre-trained model
-MODEL_PATH = "model.h5"  # Ensure the model is in the same directory or provide the correct path
+MODEL_PATH = "C:\ML Projects\Brain Tumor (streamlit)\model.h5"  # Ensure the model is in the same directory or provide the correct path
 model = tf.keras.models.load_model(MODEL_PATH)
 
 # Class labels
