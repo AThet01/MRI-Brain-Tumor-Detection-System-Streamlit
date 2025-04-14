@@ -3,11 +3,18 @@ import tensorflow as tf
 import numpy as np
 import os
 from PIL import Image
+import gdown
 
-# Load model with dynamic path
-MODEL_PATH = os.path.join(os.path.dirname(__file__), "model.h5")
+# === Google Drive model download setup ===
+MODEL_FILENAME = "model.h5"
+MODEL_FILE_ID = "17e5HUzhUciAvQ9X30_u9CQKhdgn2ecHv"  # Replace with your actual file ID
+MODEL_PATH = os.path.join(os.path.dirname(__file__), MODEL_FILENAME)
+
+# Download model if not already present
 if not os.path.exists(MODEL_PATH):
-    st.error("Model file not found. Ensure model.h5 is in the same directory.")
+    st.warning("Model not found locally. Downloading from Google Drive...")
+    url = f"https://drive.google.com/uc?id={MODEL_FILE_ID}"
+    gdown.download(url, MODEL_PATH, quiet=False)
 
 # Load pre-trained model
 model = tf.keras.models.load_model(MODEL_PATH)
@@ -27,7 +34,7 @@ uploaded_file = st.file_uploader("Upload MRI Image", type=["jpg", "png", "jpeg"]
 if uploaded_file:
     image = Image.open(uploaded_file)
     st.image(image, caption="Uploaded MRI Image", use_column_width=True)
-    
+
     IMAGE_SIZE = 128
     image = image.resize((IMAGE_SIZE, IMAGE_SIZE))
     image = np.array(image) / 255.0
