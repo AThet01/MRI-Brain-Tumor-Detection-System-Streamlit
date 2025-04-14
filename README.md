@@ -1,6 +1,6 @@
 # MRI-Brain-Tumor-Detection-System-Streamlit
 
-🥲can't deploy the streamlit app cause of model file.
+# 💻 Website -> https://mri-brain-tumor-detection-system-app-xh4ufuppjhxgvtytjgt7tz.streamlit.app/
 
 # ⭐ UI ⭐
 ![Image](https://github.com/user-attachments/assets/46bb8d5c-075d-4b8a-9c04-ebb310441f1e)
